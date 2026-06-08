@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gonzalez Clavin — Medicina Física</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #5dfc2a;
+            --dark: #4a4a4a;
+            --darker: #2d2d2d;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            background: var(--darker);
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            background: rgba(30, 30, 30, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 0.7rem 1.5rem;
+            border-bottom: 2px solid var(--green);
+        }
+
+        .navbar-brand img { height: 48px; }
+
+        .navbar-nav .nav-link {
+            color: #ccc !important;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem !important;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: var(--green) !important; }
+
+        .navbar-toggler { border-color: var(--green); }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%235dfc2a' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* ── HERO ── */
+        #inicio {
+            min-height: 100vh;
+            background: url('assets/foto-hero.jpg') center center / cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #inicio::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .hero-content img {
+            width: 190px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 25px rgba(93, 252, 42, 0.45));
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content h1 span { color: var(--green); }
+
+        .hero-content .sub {
+            font-size: 1rem;
+            color: #ccc;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-hero {
+            background: var(--green);
+            color: #1e1e1e;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.9rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-hero:hover {
+            background: #fff;
+            color: #1e1e1e;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(93, 252, 42, 0.35);
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--green);
+            font-size: 1.8rem;
+            z-index: 1;
+            animation: bounce 2s infinite;
+            text-decoration: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* ── SECCIONES COMUNES ── */
+        section { padding: 100px 0; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title span { color: var(--green); }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--green);
+            margin: 1rem auto 3rem;
+            border-radius: 2px;
+        }
+
+        /* ── SOBRE NOSOTROS ── */
+        #sobre {
+            background: url('assets/foto-sala1.jpg') center center / cover no-repeat;
+            position: relative;
+        }
+
+        #sobre::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 30, 30, 0.90);
+        }
+
+        #sobre .container { position: relative; z-index: 1; }
+
+        .sobre-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(93, 252, 42, 0.3);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            backdrop-filter: blur(6px);
+            text-align: center;
+        }
+
+        .sobre-card .dr-name {
+            font-size: 1.7rem;
+            font-weight: 900;
+            margin-bottom: 0.3rem;
+        }
+
+        .sobre-card .dr-name span { color: var(--green); }
+
+        .sobre-card .dr-title {
+            font-size: 0.9rem;
+            color: #aaa;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .sobre-card .dr-bio {
+            color: #ccc;
+            line-height: 1.9;
+            font-size: 0.97rem;
+        }
+
+        .badge-sport {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: var(--green);
+            color: #1e1e1e;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 0.45rem 1.2rem;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ── SERVICIOS ── */
+        #servicios {
+            background: url('assets/foto-tratamiento.jpg') center 30% / cover no-repeat;
+            position: relative;
+        }
+
+        #servicios::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.84);
+        }
+
+        #servicios .container { position: relative; z-index: 1; }
+
+        .servicio-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.3rem 0;
+            border-bottom: 1px solid rgba(93, 252, 42, 0.15);
+        }
+
+        .servicio-item:last-child { border-bottom: none; }
+
+        .serv-icon {
+            color: var(--green);
+            font-size: 1.3rem;
+            width: 30px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .servicio-item p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #eee;
+        }
+
+        /* ── UBICACION ── */
+        #ubicacion { background: var(--darker); }
+
+        .address-line {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ddd;
+        }
+
+        .address-line i {
+            color: var(--green);
+            margin-right: 0.5rem;
+        }
+
+        .map-wrapper {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px solid rgba(93, 252, 42, 0.3);
+            box-shadow: 0 0 50px rgba(93, 252, 42, 0.08);
+        }
+
+        /* ── CONTACTO ── */
+        #contacto { background: var(--dark); }
+
+        #contacto .sub-text {
+            color: #bbb;
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe5d;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+        }
+
+        .btn-instagram:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(220, 39, 67, 0.35);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 1.5rem;
+            color: #555;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(93, 252, 42, 0.15);
+        }
+
+        footer span { color: var(--green); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; letter-spacing: 2px; }
+            .section-title  { font-size: 1.5rem; }
+            section         { padding: 70px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#inicio">
+            <img src="assets/logo.png" alt="Gonzalez Clavin Medicina Física">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+    <div class="hero-content">
+        <img src="assets/logo.png" alt="Logo">
+        <h1><span>Gonzalez</span> Clavin</h1>
+        <p class="sub">Medicina Física</p>
+        <a href="#sobre" class="btn-hero">Conocenos</a>
+    </div>
+    <a href="#sobre" class="scroll-arrow">
+        <i class="fa-solid fa-chevron-down"></i>
+    </a>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section id="sobre">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Sobre <span>Nosotros</span></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-10">
+                <div class="sobre-card">
+                    <p class="dr-name"><span>Dr.</span> Patricio Gonzalez Clavin</p>
+                    <p class="dr-title">Médico y Kinesiólogo Fisiatra</p>
+                    <p class="dr-bio">
+                        Especialista en medicina física y rehabilitación, con formación integral en kinesiología y fisiatría.
+                        Comprometido con el tratamiento del dolor y las patologías del sistema musculoesquelético,
+                        combinando evidencia científica con un enfoque personalizado para cada paciente.
+                    </p>
+                    <span class="badge-sport">Atleta de Jiu Jitsu / Grappling</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title"><span>Servicios</span> & Tratamientos</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-10">
+                <div class="servicio-item">
+                    <i class="fa-solid fa-bone serv-icon"></i>
+                    <p>Tratamiento de patologías musculoesqueléticas y del dolor</p>
+                </div>
+                <div class="servicio-item">
+                    <i class="fa-solid fa-syringe serv-icon"></i>
+                    <p>Punción Seca</p>
+                </div>
+                <div class="servicio-item">
+                    <i class="fa-solid fa-stethoscope serv-icon"></i>
+                    <p>Ecografía para intervencionismo ecoguiado</p>
+                </div>
+                <div class="servicio-item">
+                    <i class="fa-solid fa-hands serv-icon"></i>
+                    <p>Maniobras ortopédicas articulares (ajustes)</p>
+                </div>
+                <div class="servicio-item">
+                    <i class="fa-solid fa-droplet serv-icon"></i>
+                    <p>Plasma Rico en Plaquetas y demás</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UBICACION -->
+<section id="ubicacion">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Nuestra <span>Ubicación</span></h2>
+            <div class="divider"></div>
+        </div>
+        <p class="address-line">
+            <i class="fa-solid fa-location-dot"></i>
+            Mariano Acosta 137, Avellaneda, Buenos Aires
+        </p>
+        <div class="map-wrapper">
+            <iframe
+                src="https://maps.google.com/maps?q=Mariano+Acosta+137,+Avellaneda,+Buenos+Aires,+Argentina&output=embed"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    <div class="container text-center">
+        <h2 class="section-title">Con<span>tacto</span></h2>
+        <div class="divider"></div>
+        <p class="sub-text">¿Querés sacar un turno o hacer una consulta? ¡Escribinos!</p>
+        <div>
+            <a href="https://wa.me/541155959519" target="_blank" rel="noopener" class="contact-btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp fa-lg"></i>
+                WhatsApp
+            </a>
+            <a href="https://www.instagram.com/medicfix" target="_blank" rel="noopener" class="contact-btn btn-instagram">
+                <i class="fa-brands fa-instagram fa-lg"></i>
+                Instagram
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2025 <span>Gonzalez Clavin — Medicina Física</span>. Todos los derechos reservados.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Cerrar navbar mobile al clickear un link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const collapse = document.getElementById('navMenu');
+            if (collapse.classList.contains('show')) {
+                bootstrap.Collapse.getInstance(collapse)?.hide();
+            }
+        });
+    });
+
+    // Resaltar link activo según sección visible
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        });
+        navLinks.forEach(l => {
+            l.classList.toggle('active', l.getAttribute('href') === `#${current}`);
+        });
+    });
+</script>
+
+</body>
+</html>
