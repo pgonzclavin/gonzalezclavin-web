@@ -54,7 +54,7 @@
         /* ── HERO ── */
         #inicio {
             min-height: 100vh;
-            background: url('assets/foto-hero.jpg') center center / cover no-repeat;
+            background: url('assets/foto-sala1.jpg') center center / cover no-repeat;
             position: relative;
             display: flex;
             align-items: center;
@@ -75,27 +75,21 @@
             padding: 2rem;
         }
 
-        .hero-content img {
-            width: 190px;
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 0 25px rgba(93, 252, 42, 0.45));
-        }
-
         .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 900;
+            font-size: 2.8rem;
+            font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            color: #fff;
         }
-
-        .hero-content h1 span { color: var(--green); }
 
         .hero-content .sub {
-            font-size: 1rem;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: #ccc;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 2.5rem;
         }
@@ -161,7 +155,7 @@
 
         /* ── SOBRE NOSOTROS ── */
         #sobre {
-            background: url('assets/foto-sala1.jpg') center center / cover no-repeat;
+            background: url('assets/foto-hero.jpg') center center / cover no-repeat;
             position: relative;
         }
 
@@ -221,7 +215,7 @@
 
         /* ── SERVICIOS ── */
         #servicios {
-            background: url('assets/foto-tratamiento.jpg') center 30% / cover no-repeat;
+            background: url('assets/foto-tratamiento.jpg') center center / cover no-repeat;
             position: relative;
         }
 
@@ -283,6 +277,104 @@
         }
 
         /* ── CONTACTO ── */
+        /* ── RESEÑAS ── */
+        #resenas { background: var(--darker); }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(93, 252, 42, 0.25);
+            border-radius: 16px;
+            padding: 1.2rem 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .rating-score {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .rating-info { text-align: left; }
+
+        .rating-stars { color: #FBBC04; font-size: 1.2rem; letter-spacing: 2px; }
+
+        .rating-count { color: #aaa; font-size: 0.82rem; margin-top: 0.2rem; }
+
+        .review-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 1.5rem;
+            text-align: left;
+            height: 100%;
+            transition: border-color 0.3s;
+        }
+
+        .review-card:hover { border-color: rgba(93, 252, 42, 0.3); }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+            color: #fff;
+        }
+
+        .review-name { font-weight: 700; font-size: 0.9rem; color: #eee; }
+        .review-date { font-size: 0.75rem; color: #777; margin-top: 0.1rem; }
+        .review-stars { color: #FBBC04; font-size: 0.85rem; margin-bottom: 0.7rem; }
+
+        .review-text {
+            font-size: 0.88rem;
+            color: #bbb;
+            line-height: 1.7;
+        }
+
+        .google-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1.2rem;
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .btn-google {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 3rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-google:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
         #contacto { background: var(--dark); }
 
         #contacto .sub-text {
@@ -366,6 +458,7 @@
                 <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nosotros</a></li>
                 <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
                 <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+                <li class="nav-item"><a class="nav-link" href="#resenas">Reseñas</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
             </ul>
         </div>
@@ -375,8 +468,7 @@
 <!-- HERO -->
 <section id="inicio">
     <div class="hero-content">
-        <img src="assets/logo.png" alt="Logo">
-        <h1><span>Gonzalez</span> Clavin</h1>
+        <h1>Gonzalez Clavin</h1>
         <p class="sub">Medicina Física</p>
         <a href="#sobre" class="btn-hero">Conocenos</a>
     </div>
@@ -398,11 +490,13 @@
                     <p class="dr-name"><span>Dr.</span> Patricio Gonzalez Clavin</p>
                     <p class="dr-title">Médico y Kinesiólogo Fisiatra</p>
                     <p class="dr-bio">
-                        Especialista en medicina física y rehabilitación, con formación integral en kinesiología y fisiatría.
+                        Especialista en medicina física y rehabilitación, con formación como médico y licenciado en kinesiología y fisiatría.
                         Comprometido con el tratamiento del dolor y las patologías del sistema musculoesquelético,
                         combinando evidencia científica con un enfoque personalizado para cada paciente.
                     </p>
-                    <span class="badge-sport">Atleta de Jiu Jitsu / Grappling</span>
+                    <p class="dr-bio" style="margin-top:1rem;">
+                        También atleta de Jiu Jitsu y Grappling, complementa el enfoque médico con la visión deportiva.
+                    </p>
                 </div>
             </div>
         </div>
@@ -414,21 +508,18 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-title"><span>Servicios</span> & Tratamientos</h2>
+            <p style="color:#bbb; font-size:1rem; margin-bottom:0.5rem;">Tratamiento de patologías musculoesqueléticas y del dolor</p>
             <div class="divider"></div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-10">
                 <div class="servicio-item">
-                    <i class="fa-solid fa-bone serv-icon"></i>
-                    <p>Tratamiento de patologías musculoesqueléticas y del dolor</p>
-                </div>
-                <div class="servicio-item">
                     <i class="fa-solid fa-syringe serv-icon"></i>
                     <p>Punción Seca</p>
                 </div>
                 <div class="servicio-item">
-                    <i class="fa-solid fa-stethoscope serv-icon"></i>
-                    <p>Ecografía para intervencionismo ecoguiado</p>
+                    <i class="fa-solid fa-tv serv-icon"></i>
+                    <p>Ecografía (para intervencionismo ecoguiado)</p>
                 </div>
                 <div class="servicio-item">
                     <i class="fa-solid fa-hands serv-icon"></i>
@@ -450,6 +541,8 @@
             <h2 class="section-title">Nuestra <span>Ubicación</span></h2>
             <div class="divider"></div>
         </div>
+        <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-10">
         <p class="address-line">
             <i class="fa-solid fa-location-dot"></i>
             Mariano Acosta 137, Avellaneda, Buenos Aires
@@ -465,6 +558,145 @@
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESEÑAS -->
+<section id="resenas">
+    <div class="container text-center">
+        <h2 class="section-title">Reseñas de <span>Google</span></h2>
+        <div class="divider"></div>
+
+        <div class="rating-badge">
+            <div class="rating-score">5.0</div>
+            <div class="rating-info">
+                <div class="rating-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="rating-count">Basado en reseñas de Google</div>
+            </div>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background:#4285F4;">S</div>
+                        <div>
+                            <div class="review-name">Sergio Fernández</div>
+                            <div class="review-date">4 ene 2025</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">El mejor lo recomiendo al 100%</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background:#EA4335;">L</div>
+                        <div>
+                            <div class="review-name">Leonardo Degiovanni</div>
+                            <div class="review-date">Hace 4 semanas</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">Un 10 de 10. Años lidiando con la cervical y con la punción seca el doc dio en el palo. Súper agradecido.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background:#34A853;">C</div>
+                        <div>
+                            <div class="review-name">Cristian Schmidt</div>
+                            <div class="review-date">Hace 4 semanas</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">Muy buena atención profesional, sobre todo a atletas y luchadores. Debe estar en la agenda de cualquier persona que realiza actividad física y aquellas que estén en recuperación.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background:#F4A027;">S</div>
+                        <div>
+                            <div class="review-name">Sebastian Campos</div>
+                            <div class="review-date">Hace 3 semanas</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">Excelente... La verdad que lo recomiendo al 100%. Gracias al trabajo del doctor me pude recuperar de una hernia cervical.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background:#9C27B0;">L</div>
+                        <div>
+                            <div class="review-name">Luciana Holman</div>
+                            <div class="review-date">Hace 3 semanas</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">Soy atleta de powerlifting y Patricio es el único profesional que resuelve todas mis molestias. ¡Un genio!</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background:#00897B;">B</div>
+                        <div>
+                            <div class="review-name">Bruno Nicolás Riquelme</div>
+                            <div class="review-date">Hace 4 días</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">Patricio es un genio. Fui recomendado por conocidos. No sabía la técnica de punción seca. La verdad que me salvó de dolores lumbares y me recuperó el manguito rotador. Excelente profesional.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://share.google/BVCryRsKbu8surbhD" target="_blank" rel="noopener" class="btn-google">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            Ver todas las reseñas en Google
+        </a>
     </div>
 </section>
 
